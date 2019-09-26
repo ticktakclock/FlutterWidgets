@@ -369,3 +369,134 @@ class DetailColumn extends DetailWidget {
     ),''';
   }
 }
+
+class DetailAspectRatio extends DetailWidget {
+  @override
+  String getTitle() {
+    return "AspectRatio";
+  }
+
+  @override
+  Widget buildBody() {
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: AspectRatio(
+          aspectRatio: 9 / 16,
+          child: Container(
+            color: Colors.blue[100],
+            width: 240,
+            height: 240,
+            child: Padding(
+              padding: EdgeInsets.all(32.0),
+              child: Container(
+                color: Colors.blue[200],
+                width: 48,
+                height: 48,
+              ),
+            ),
+          )),
+    );
+  }
+
+  @override
+  Widget buildCode() {
+    return new Container(
+      margin: const EdgeInsets.all(48.0),
+      child: new Text(getCode()),
+    );
+  }
+
+  @override
+  String getCode() {
+    return '''
+    AspectRatio(
+      aspectRatio: 9 / 16,
+      child: Container(
+        color: Colors.blue[100],
+        width: 240,
+        height: 240,
+        child: Padding(
+          padding: EdgeInsets.all(32.0),
+          child: Container(
+            color: Colors.blue[200],
+            width: 48,
+            height: 48,
+          ),
+        ),
+      ))
+    ''';
+  }
+}
+
+class DetailExpanded extends DetailWidget {
+  @override
+  String getTitle() {
+    return "Expanded";
+  }
+
+  @override
+  Widget buildBody() {
+    return Center(
+      child: Column(
+        children: <Widget>[
+          Container(
+            color: Colors.blue,
+            height: 100,
+            width: 100,
+            child: Text("container"),
+          ),
+          Expanded(
+            child: Container(
+              color: Colors.amber,
+              width: 100,
+              child: Text("expanded"),
+            ),
+          ),
+          Container(
+            color: Colors.blue,
+            height: 100,
+            width: 100,
+            child: Text("container"),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget buildCode() {
+    return new Container(
+      margin: const EdgeInsets.all(48.0),
+      child: new Text(getCode()),
+    );
+  }
+
+  @override
+  String getCode() {
+    return '''
+    Column(
+      children: <Widget>[
+        Container(
+          color: Colors.blue,
+          height: 100,
+          width: 100,
+          child: Text("container"),
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.amber,
+            width: 100,
+            child: Text("expanded"),
+          ),
+        ),
+        Container(
+          color: Colors.blue,
+          height: 100,
+          width: 100,
+          child: Text("container"),
+        ),
+      ],
+    )
+    ''';
+  }
+}
