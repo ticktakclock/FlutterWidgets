@@ -500,3 +500,219 @@ class DetailExpanded extends DetailWidget {
     ''';
   }
 }
+
+class DetailGridView extends DetailWidget {
+  BuildContext _context;
+
+  DetailGridView(BuildContext context) {
+    _context = context;
+  }
+
+  @override
+  String getTitle() {
+    return "GridView";
+  }
+
+  @override
+  Widget buildBody() {
+    return GridView.count(
+      crossAxisCount: 2,
+      padding: const EdgeInsets.all(16.0),
+      crossAxisSpacing: 10,
+      mainAxisSpacing: 10,
+      children: <Widget>[
+        Container(
+          child: const Text("child1"),
+          color: Colors.teal[100],
+        ),
+        Container(
+          child: const Text("child2"),
+          color: Colors.teal[200],
+        ),
+        Container(
+          child: const Text("child3"),
+          color: Colors.teal[300],
+        ),
+        Container(
+          child: const Text("child4"),
+          color: Colors.teal[400],
+        ),
+        Container(
+          child: const Text("child5"),
+          color: Colors.teal[500],
+        ),
+        Container(
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                _context,
+                MaterialPageRoute(
+                  builder: (context) => DetailCustomScrollView(context),
+                ),
+              );
+            },
+            child: const Text("see. jump to CustomScrollView"),
+          ),
+          color: Colors.teal[600],
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget buildCode() {
+    return new Container(
+      margin: const EdgeInsets.all(48.0),
+      child: new Text(getCode()),
+    );
+  }
+
+  @override
+  String getCode() {
+    return '''
+    GridView.count(
+      crossAxisCount: 2,
+      padding: const EdgeInsets.all(16.0),
+      crossAxisSpacing: 10,
+      mainAxisSpacing: 10,
+      children: <Widget>[
+        Container(
+          child: const Text("child1"),
+          color: Colors.teal[100],
+        ),
+        Container(
+          child: const Text("child2"),
+          color: Colors.teal[200],
+        ),
+        Container(
+          child: const Text("child3"),
+          color: Colors.teal[300],
+        ),
+        Container(
+          child: const Text("child4"),
+          color: Colors.teal[400],
+        ),
+        Container(
+          child: const Text("child5"),
+          color: Colors.teal[500],
+        ),
+      ],
+    )
+    ''';
+  }
+}
+
+class DetailCustomScrollView extends DetailWidget {
+  BuildContext _context;
+
+  DetailCustomScrollView(BuildContext context) {
+    _context = context;
+  }
+
+  @override
+  String getTitle() {
+    return "CustomScrollView";
+  }
+
+  @override
+  Widget buildBody() {
+    return CustomScrollView(
+      primary: false,
+      slivers: <Widget>[
+        SliverPadding(
+          padding: const EdgeInsets.all(16.0),
+          sliver: SliverGrid.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            children: <Widget>[
+              Container(
+                child: const Text("child1"),
+                color: Colors.teal[100],
+              ),
+              Container(
+                child: const Text("child2"),
+                color: Colors.teal[200],
+              ),
+              Container(
+                child: const Text("child3"),
+                color: Colors.teal[300],
+              ),
+              Container(
+                child: const Text("child4"),
+                color: Colors.teal[400],
+              ),
+              Container(
+                child: const Text("child5"),
+                color: Colors.teal[500],
+              ),
+              Container(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      _context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailGridView(context),
+                      ),
+                    );
+                  },
+                  child: const Text("see. jump to GridView"),
+                ),
+                color: Colors.teal[600],
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget buildCode() {
+    return new Container(
+      margin: const EdgeInsets.all(48.0),
+      child: new Text(getCode()),
+    );
+  }
+
+  @override
+  String getCode() {
+    return '''
+    CustomScrollView(
+      primary: false,
+      slivers: <Widget>[
+        SliverPadding(
+          padding: const EdgeInsets.all(16.0),
+          sliver: SliverGrid.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            children: <Widget>[
+              Container(
+                child: const Text("child1"),
+                color: Colors.teal[100],
+              ),
+              Container(
+                child: const Text("child2"),
+                color: Colors.teal[200],
+              ),
+              Container(
+                child: const Text("child3"),
+                color: Colors.teal[300],
+              ),
+              Container(
+                child: const Text("child4"),
+                color: Colors.teal[400],
+              ),
+              Container(
+                child: const Text("child5"),
+                color: Colors.teal[500],
+              ),
+            ],
+          ),
+        ),
+      ],
+    )
+    ''';
+  }
+}
