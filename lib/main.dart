@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/layouts/text.dart';
 import 'WidgetDetail.dart';
 import 'layouts/layouts.dart';
 
@@ -64,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
       DetailExpanded(),
       DetailGridView(context),
       DetailCustomScrollView(context),
+      DetailText(),
     ];
     return ListView.builder(
       padding: EdgeInsets.all(8.0),
