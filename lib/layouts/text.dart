@@ -81,3 +81,92 @@ class DetailText extends DetailWidget {
     ''';
   }
 }
+
+class DetailRichText extends DetailWidget {
+  BuildContext _context;
+
+  DetailRichText(BuildContext context) {
+    _context = context;
+  }
+
+  @override
+  String getTitle() {
+    return "RichText";
+  }
+
+  @override
+  Widget buildBody() {
+    return Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: RichText(
+                text: TextSpan(
+                  text: "Hello ",
+                  style: DefaultTextStyle.of(_context).style,
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: "bold",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    TextSpan(text: " world!"),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: RichText(
+                text: TextSpan(
+                  text: "Hello ",
+                  style: DefaultTextStyle.of(_context).style,
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: "red parend ",
+                        style: TextStyle(color: Colors.red[300]),
+                        children: [
+                          TextSpan(
+                            text: "red child bold",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ]),
+                    TextSpan(text: " world!"),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget buildCode() {
+    return Container(
+      margin: const EdgeInsets.all(48.0),
+      child: Text(getCode()),
+    );
+  }
+
+  @override
+  String getCode() {
+    return '''
+    RichText(
+      text: TextSpan(
+        text: "Hello ",
+        style: DefaultTextStyle.of(_context).style,
+        children: <TextSpan>[
+          TextSpan(
+              text: "bold",
+              style: TextStyle(fontWeight: FontWeight.bold)),
+          TextSpan(text: " world!"),
+        ],
+      ),
+    )
+    ''';
+  }
+}

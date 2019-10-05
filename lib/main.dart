@@ -66,6 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
       DetailGridView(context),
       DetailCustomScrollView(context),
       DetailText(),
+      DetailRichText(context),
     ];
     return ListView.builder(
       padding: EdgeInsets.all(8.0),
