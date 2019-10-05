@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/layouts/Input.dart';
 import 'package:flutter_widgets/layouts/text.dart';
 import 'WidgetDetail.dart';
 import 'layouts/layouts.dart';
@@ -67,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
       DetailCustomScrollView(context),
       DetailText(),
       DetailRichText(context),
+      DetailForm(),
     ];
     return ListView.builder(
       padding: EdgeInsets.all(8.0),
