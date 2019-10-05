@@ -64,10 +64,10 @@ class _MyHomePageState extends State<MyHomePage> {
       DetailColumn(),
       DetailAspectRatio(),
       DetailExpanded(),
-      DetailGridView(context),
-      DetailCustomScrollView(context),
+      DetailGridView(),
+      DetailCustomScrollView(),
       DetailText(),
-      DetailRichText(context),
+      DetailRichText(),
       DetailForm(),
     ];
     return ListView.builder(

@@ -22,7 +22,7 @@ abstract class DetailWidget extends StatelessWidget {
   String getTitle();
 
   @protected
-  Widget buildBody();
+  Widget buildBody(BuildContext context);
 
   @protected
   Widget buildCode();
@@ -36,7 +36,7 @@ abstract class DetailWidget extends StatelessWidget {
       appBar: AppBar(
         title: Text(getTitle()),
       ),
-      body: buildBody(),
+      body: buildBody(context),
       floatingActionButton: new FloatingActionButton(
         onPressed: () {
           showDialog(

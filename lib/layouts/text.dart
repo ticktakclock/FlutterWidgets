@@ -8,7 +8,7 @@ class DetailText extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Column(
       children: <Widget>[
         Row(
@@ -83,11 +83,6 @@ class DetailText extends DetailWidget {
 }
 
 class DetailRichText extends DetailWidget {
-  BuildContext _context;
-
-  DetailRichText(BuildContext context) {
-    _context = context;
-  }
 
   @override
   String getTitle() {
@@ -95,7 +90,7 @@ class DetailRichText extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Column(
       children: <Widget>[
         Row(
@@ -104,7 +99,7 @@ class DetailRichText extends DetailWidget {
               child: RichText(
                 text: TextSpan(
                   text: "Hello ",
-                  style: DefaultTextStyle.of(_context).style,
+                  style: DefaultTextStyle.of(context).style,
                   children: <TextSpan>[
                     TextSpan(
                         text: "bold",
@@ -122,7 +117,7 @@ class DetailRichText extends DetailWidget {
               child: RichText(
                 text: TextSpan(
                   text: "Hello ",
-                  style: DefaultTextStyle.of(_context).style,
+                  style: DefaultTextStyle.of(context).style,
                   children: <TextSpan>[
                     TextSpan(
                         text: "red parend ",
@@ -158,7 +153,7 @@ class DetailRichText extends DetailWidget {
     RichText(
       text: TextSpan(
         text: "Hello ",
-        style: DefaultTextStyle.of(_context).style,
+        style: DefaultTextStyle.of(context).style,
         children: <TextSpan>[
           TextSpan(
               text: "bold",

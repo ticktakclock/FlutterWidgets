@@ -8,7 +8,7 @@ class DetailForm extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return DetailFromStateful();
   }
 

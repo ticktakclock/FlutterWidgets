@@ -8,7 +8,7 @@ class DetailContainer extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Container(
       color: Colors.blue[100],
       width: 240,
@@ -44,7 +44,7 @@ class DetailCenter extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Center(
       child: Container(
         color: Colors.blue[100],
@@ -84,7 +84,7 @@ class DetailAlign extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Align(
       alignment: Alignment.topRight,
       child: Container(
@@ -139,7 +139,7 @@ class DetailPadding extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(16.0),
       child: Container(
@@ -195,7 +195,7 @@ class DetailRow extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Column(
       children: <Widget>[
         Row(
@@ -274,7 +274,7 @@ class DetailColumn extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Column(
       children: <Widget>[
         Container(
@@ -377,7 +377,7 @@ class DetailAspectRatio extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(16.0),
       child: AspectRatio(
@@ -435,7 +435,7 @@ class DetailExpanded extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Center(
       child: Column(
         children: <Widget>[
@@ -502,11 +502,6 @@ class DetailExpanded extends DetailWidget {
 }
 
 class DetailGridView extends DetailWidget {
-  BuildContext _context;
-
-  DetailGridView(BuildContext context) {
-    _context = context;
-  }
 
   @override
   String getTitle() {
@@ -514,7 +509,7 @@ class DetailGridView extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return GridView.count(
       crossAxisCount: 2,
       padding: const EdgeInsets.all(16.0),
@@ -545,9 +540,9 @@ class DetailGridView extends DetailWidget {
           child: GestureDetector(
             onTap: () {
               Navigator.push(
-                _context,
+                context,
                 MaterialPageRoute(
-                  builder: (context) => DetailCustomScrollView(context),
+                  builder: (context) => DetailCustomScrollView(),
                 ),
               );
             },
@@ -603,11 +598,6 @@ class DetailGridView extends DetailWidget {
 }
 
 class DetailCustomScrollView extends DetailWidget {
-  BuildContext _context;
-
-  DetailCustomScrollView(BuildContext context) {
-    _context = context;
-  }
 
   @override
   String getTitle() {
@@ -615,7 +605,7 @@ class DetailCustomScrollView extends DetailWidget {
   }
 
   @override
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return CustomScrollView(
       primary: false,
       slivers: <Widget>[
@@ -650,9 +640,9 @@ class DetailCustomScrollView extends DetailWidget {
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
-                      _context,
+                      context,
                       MaterialPageRoute(
-                        builder: (context) => DetailGridView(context),
+                        builder: (context) => DetailGridView(),
                       ),
                     );
                   },
@@ -714,5 +704,62 @@ class DetailCustomScrollView extends DetailWidget {
       ],
     )
     ''';
+  }
+}
+
+
+class DetailMediaQuery extends DetailWidget {
+  @override
+  String getTitle() {
+    return "MediaQuery";
+  }
+
+  @override
+  Widget buildBody(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Container(
+        color: Colors.blue[100],
+        width: 240,
+        height: 240,
+        child: Padding(
+          padding: EdgeInsets.all(32.0),
+          child: Container(
+            color: Colors.blue[200],
+            width: 48,
+            height: 48,
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget buildCode() {
+    return new Container(
+      margin: const EdgeInsets.all(48.0),
+      child: new Text(getCode()),
+    );
+  }
+
+  @override
+  String getCode() {
+    return '''
+    Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Container(
+        color: Colors.blue[100],
+        width: 240,
+        height: 240,
+        child: Padding(
+          padding: EdgeInsets.all(32.0),
+          child: Container(
+            color: Colors.blue[200],
+            width: 48,
+            height: 48,
+          ),
+        ),
+      ),
+    );''';
   }
 }
