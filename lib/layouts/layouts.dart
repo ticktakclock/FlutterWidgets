@@ -862,3 +862,70 @@ class DetailFlutterLogo extends DetailWidget {
     ''';
   }
 }
+
+class DetailPlaceHolder extends DetailWidget {
+  @override
+  String getTitle() {
+    return "PlaceHolder";
+  }
+
+  @override
+  Widget buildBody(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Placeholder(
+              key: Key("thumbnail"),
+              color: Colors.green[100],
+              fallbackHeight: 100.0,
+              fallbackWidth: 100.0,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text("username: -----"),
+                  Text("email: -----"),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget buildCode() {
+    return new Container(
+      margin: const EdgeInsets.all(48.0),
+      child: new Text(getCode()),
+    );
+  }
+
+  @override
+  String getCode() {
+    return '''
+    Row(
+      children: <Widget>[
+        Placeholder(
+          key: Key("thumbnail"),
+          color: Colors.green[100],
+          fallbackHeight: 100.0,
+          fallbackWidth: 100.0,
+        ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text("username: -----"),
+              Text("email: -----"),
+            ],
+          ),
+        ),
+      ],
+    )
+    ''';
+  }
+}

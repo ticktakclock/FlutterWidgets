@@ -72,6 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
       DetailText(),
       DetailRichText(),
       DetailForm(),
+      DetailPlaceHolder(),
     ];
     return ListView.builder(
       padding: EdgeInsets.all(8.0),
