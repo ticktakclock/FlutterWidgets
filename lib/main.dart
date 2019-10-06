@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
       DetailCenter(),
       DetailAlign(),
       DetailPadding(),
+      DetailMediaQuery(),
       DetailRow(),
       DetailColumn(),
       DetailAspectRatio(),

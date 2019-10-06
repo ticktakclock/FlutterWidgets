@@ -188,6 +188,89 @@ class DetailPadding extends DetailWidget {
   }
 }
 
+class DetailMediaQuery extends DetailWidget {
+  @override
+  String getTitle() {
+    return "MediaQuery";
+  }
+
+  @override
+  Widget buildBody(BuildContext context) {
+    var data = MediaQuery.of(context);
+    var size = data.size;
+    if (size.height / size.width >= 1) {
+      return Column(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Container(
+              padding: EdgeInsets.all(16.0),
+              color: Colors.blue[100],
+              width: 240,
+              height: 240,
+              child: Text("size.height / size.width >= 1"),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Container(
+                padding: EdgeInsets.all(16.0),
+                color: Colors.blue[100],
+                width: 240,
+                height: 240,
+                child: Text("width: ${size.width} , height: ${size.height}")),
+          ),
+        ],
+      );
+    } else {
+      return Row(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Container(
+              padding: EdgeInsets.all(16.0),
+              color: Colors.green[100],
+              width: 240,
+              height: 240,
+              child: Text("size.height / size.width < 1"),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Container(
+                padding: EdgeInsets.all(16.0),
+                color: Colors.green[100],
+                width: 240,
+                height: 240,
+                child: Text("width: ${size.width} , height: ${size.height}")),
+          ),
+        ],
+      );
+    }
+  }
+
+  @override
+  Widget buildCode() {
+    return new Container(
+      margin: const EdgeInsets.all(48.0),
+      child: new Text(getCode()),
+    );
+  }
+
+  @override
+  String getCode() {
+    return '''
+    var data = MediaQuery.of(context);
+    var size = data.size;
+    if (size.height / size.width >= 1) {
+      // some layouts for portrait
+    } else {
+      // some layouts for landscape
+    }
+    ''';
+  }
+}
+
 class DetailRow extends DetailWidget {
   @override
   String getTitle() {
@@ -502,7 +585,6 @@ class DetailExpanded extends DetailWidget {
 }
 
 class DetailGridView extends DetailWidget {
-
   @override
   String getTitle() {
     return "GridView";
@@ -598,7 +680,6 @@ class DetailGridView extends DetailWidget {
 }
 
 class DetailCustomScrollView extends DetailWidget {
-
   @override
   String getTitle() {
     return "CustomScrollView";
@@ -704,62 +785,5 @@ class DetailCustomScrollView extends DetailWidget {
       ],
     )
     ''';
-  }
-}
-
-
-class DetailMediaQuery extends DetailWidget {
-  @override
-  String getTitle() {
-    return "MediaQuery";
-  }
-
-  @override
-  Widget buildBody(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Container(
-        color: Colors.blue[100],
-        width: 240,
-        height: 240,
-        child: Padding(
-          padding: EdgeInsets.all(32.0),
-          child: Container(
-            color: Colors.blue[200],
-            width: 48,
-            height: 48,
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget buildCode() {
-    return new Container(
-      margin: const EdgeInsets.all(48.0),
-      child: new Text(getCode()),
-    );
-  }
-
-  @override
-  String getCode() {
-    return '''
-    Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Container(
-        color: Colors.blue[100],
-        width: 240,
-        height: 240,
-        child: Padding(
-          padding: EdgeInsets.all(32.0),
-          child: Container(
-            color: Colors.blue[200],
-            width: 48,
-            height: 48,
-          ),
-        ),
-      ),
-    );''';
   }
 }
