@@ -67,6 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
       DetailExpanded(),
       DetailGridView(),
       DetailCustomScrollView(),
+      DetailImage(),
+      DetailFlutterLogo(),
       DetailText(),
       DetailRichText(),
       DetailForm(),

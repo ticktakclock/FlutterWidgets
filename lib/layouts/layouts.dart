@@ -787,3 +787,78 @@ class DetailCustomScrollView extends DetailWidget {
     ''';
   }
 }
+
+class DetailImage extends DetailWidget {
+  @override
+  String getTitle() {
+    return "Image";
+  }
+
+  @override
+  Widget buildBody(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Container(
+          child: Image.network(
+              'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+        ),
+        Container(
+          child: Image.asset(
+              'android/app/src/main/res/mipmap-hdpi/ic_launcher.png'),
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget buildCode() {
+    return new Container(
+      margin: const EdgeInsets.all(48.0),
+      child: new Text(getCode()),
+    );
+  }
+
+  @override
+  String getCode() {
+    return '''
+    Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+    
+    Image.asset('android/app/src/main/res/mipmap-hdpi/ic_launcher.png'),
+    ''';
+  }
+}
+
+class DetailFlutterLogo extends DetailWidget {
+  @override
+  String getTitle() {
+    return "FlutterLogo";
+  }
+
+  @override
+  Widget buildBody(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        FlutterLogo(size: 16.0 * 4),
+        FlutterLogo(size: 16.0 * 5),
+        FlutterLogo(size: 16.0 * 6),
+        FlutterLogo(size: 16.0 * 7),
+        FlutterLogo(size: 16.0 * 8),
+      ],
+    );
+  }
+
+  @override
+  Widget buildCode() {
+    return new Container(
+      margin: const EdgeInsets.all(48.0),
+      child: new Text(getCode()),
+    );
+  }
+
+  @override
+  String getCode() {
+    return '''
+    FlutterLogo(size: 48.0)
+    ''';
+  }
+}
